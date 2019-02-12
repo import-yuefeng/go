@@ -14,4 +14,13 @@ func sum(a int, b int) int{
 
 func main(){
     sum(1, 2)
+    a_test()
+}
+
+func a_test() {
+    a := make([]int, 10)
+    b := a[:]
+    fmt.Printf("%T %T\n", a, b)
+    fmt.Println(a)
+
 }

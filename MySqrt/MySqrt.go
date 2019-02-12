@@ -11,7 +11,11 @@ func main(){
 	if err != nil{
 		fmt.Println(err)
 	}
-
+	items := [...]int{0, 10, 20, 30, 40}
+	for index, _ := range items{
+		items[index] *= 2
+	}
+	fmt.Println(items)
 	
 
 }
@@ -25,4 +29,4 @@ func my_sqrt(value float64) (result float64, err error){
 		return value*value, nil
 	}
 	return -1, errors.New("negative Error")
-}999999999
+}

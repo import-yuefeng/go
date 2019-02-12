@@ -22,6 +22,15 @@ func b() {
     a()
 }
 
+func c() {
+    i := 0
+    defer fmt.Println(i)
+    i++
+    return
+}
+
+
 func main() {
     b()
+    c()
 }
