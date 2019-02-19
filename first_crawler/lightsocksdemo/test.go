@@ -22,18 +22,23 @@
 // }
 package main
 import (
-	"fmt"
-	"github.com/likexian/whois-go"
+	"context"
+	"github.com/docker/docker/client"
+	"github.com/docker/docker/api/types"
 )
 
 func main(){
-	result, err := whois.Whois("baidu.com")
-	if err == nil {
-		fmt.Println(result)
+	cli, err := client.NewClientWithOpts(client.WithVersion("1.39"))
+	if err != nil {
+		panic(err)
 	}
-}
+	ctx := context.Background()
+	imageList, err := cli.ImageList(ctx, types.ImageListOptions{})
+	if err != nil {
+		panic(err)
+	}
+	for x :=range imageList{
+		println(x)
+	}
 
-// result, err := whois.Whois("1.1.1.1")
-// if err == nil {
-//     fmt.Println(result)
-// }
+}
